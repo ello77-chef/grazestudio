@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GrazeStudio – Websites die verkaufen</title>
+  <meta name="description" content="GrazeStudio baut professionelle Websites für kleine und mittlere Unternehmen." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NOISE OVERLAY -->
+  <div class="noise-overlay" aria-hidden="true"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="logo">Graze<span>Studio</span></a>
+      <ul class="nav-links">
+        <li><a href="#leistungen">Leistungen</a></li>
+        <li><a href="#ueber-mich">Über mich</a></li>
+        <li><a href="#referenzen">Referenzen</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#kontakt" class="btn-nav">Projekt starten →</a></li>
+      </ul>
+      <button class="burger" id="burger" aria-label="Menü öffnen">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#leistungen" class="mob-link">Leistungen</a>
+      <a href="#ueber-mich" class="mob-link">Über mich</a>
+      <a href="#referenzen" class="mob-link">Referenzen</a>
+      <a href="#faq" class="mob-link">FAQ</a>
+      <a href="#kontakt" class="mob-link cta">Projekt starten →</a>
+    </div>
+  </nav>
+
+  <!-- ═══════════ HERO — Split Layout ═══════════ -->
+  <section id="hero">
+    <div class="hero-blobs" aria-hidden="true">
+      <div class="blob b1"></div>
+      <div class="blob b2"></div>
+      <div class="blob b3"></div>
+    </div>
+    <div class="container hero-grid">
+      <!-- LEFT -->
+      <div class="hero-left">
+        <a href="#kontakt" class="availability-pill">
+          <span class="avail-dot"></span>
+          Verfügbar für neue Projekte
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6.5 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <h1>
+          Websites,<br />
+          die wirklich<br />
+          <em>verkaufen.</em>
+        </h1>
+        <p class="hero-desc">Professionelle Webauftritte für KMU und Startups — von einem einzigen Ansprechpartner, der liefert was er verspricht.</p>
+        <div class="hero-actions">
+          <a href="#kontakt" class="btn-primary">Kostenloses Erstgespräch</a>
+          <a href="#referenzen" class="btn-text">
+            Arbeiten ansehen
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </a>
+        </div>
+      </div>
+      <!-- RIGHT — Floating Glass Cards -->
+      <div class="hero-right" aria-hidden="true">
+        <div class="hero-card card-main glass">
+          <div class="card-label">Aktuelles Projekt</div>
+          <div class="card-title">Restaurant Bella Vista</div>
+          <div class="card-sub">Relaunch · Online-Reservierung</div>
+          <div class="card-progress">
+            <div class="progress-bar" style="--pct:82%"></div>
+            <span>82% fertig</span>
+          </div>
+        </div>
+        <div class="hero-card card-stat glass">
+          <div class="stat-big counter" data-target="50">0</div>
+          <div class="stat-label">Websites<br/>gelauncht</div>
+        </div>
+        <div class="hero-card card-review glass">
+          <div class="review-stars">★★★★★</div>
+          <p>"Samuel hat unsere Erwartungen übertroffen."</p>
+          <div class="review-author">— Thomas M.</div>
+        </div>
+        <div class="hero-card card-speed glass">
+          <div class="speed-ring">
+            <svg viewBox="0 0 64 64" width="64" height="64">
+              <circle cx="32" cy="32" r="28" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="5"/>
+              <circle cx="32" cy="32" r="28" fill="none" stroke="var(--em-500)" stroke-width="5"
+                      stroke-dasharray="176" stroke-dashoffset="35" stroke-linecap="round"
+                      transform="rotate(-90 32 32)"/>
+            </svg>
+            <span>98%</span>
+          </div>
+          <div class="speed-label">Kundenzufriedenheit</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE TICKER -->
+  <div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Website Neubau</span><span class="marquee-dot">◆</span>
+      <span>Website Relaunch</span><span class="marquee-dot">◆</span>
+      <span>Online Shop</span><span class="marquee-dot">◆</span>
+      <span>SEO Optimierung</span><span class="marquee-dot">◆</span>
+      <span>Mobile First</span><span class="marquee-dot">◆</span>
+      <span>Schnelle Lieferung</span><span class="marquee-dot">◆</span>
+      <span>Persönliche Betreuung</span><span class="marquee-dot">◆</span>
+      <span>DSGVO konform</span><span class="marquee-dot">◆</span>
+      <span>Website Neubau</span><span class="marquee-dot">◆</span>
+      <span>Website Relaunch</span><span class="marquee-dot">◆</span>
+      <span>Online Shop</span><span class="marquee-dot">◆</span>
+      <span>SEO Optimierung</span><span class="marquee-dot">◆</span>
+      <span>Mobile First</span><span class="marquee-dot">◆</span>
+      <span>Schnelle Lieferung</span><span class="marquee-dot">◆</span>
+      <span>Persönliche Betreuung</span><span class="marquee-dot">◆</span>
+      <span>DSGVO konform</span><span class="marquee-dot">◆</span>
+    </div>
+  </div>
+
+  <!-- ═══════════ BENTO GRID — Leistungen ═══════════ -->
+  <section id="leistungen">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Leistungen</span>
+        <h2>Alles aus <span class="gradient-text">einer Hand.</span></h2>
+      </div>
+      <div class="bento-grid">
+        <!-- Tall card left -->
+        <div class="bento-card bento-tall glass reveal">
+          <div class="bento-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <h3>Website<br/>Neubau</h3>
+          <p>Ihre Website von Grund auf — individuell gestaltet, konversionsstark und mobiloptimiert.</p>
+          <ul class="bento-list">
+            <li>Individuelles Design</li>
+            <li>Bis zu 10 Seiten</li>
+            <li>SEO-Basis</li>
+            <li>Kontaktformular</li>
+            <li>1 Monat Support</li>
+          </ul>
+          <div class="bento-price">ab <strong>990 €</strong></div>
+          <a href="#kontakt" class="btn-primary btn-sm">Anfragen</a>
+        </div>
+
+        <!-- Wide card top right -->
+        <div class="bento-card bento-wide glass reveal">
+          <div class="bento-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg>
+          </div>
+          <h3>Website Relaunch</h3>
+          <p>Ihre Seite ist veraltet? Ich erneuere Design, Technik und Struktur — gleiches Ziel, modernes Ergebnis.</p>
+          <div class="bento-price">ab <strong>790 €</strong></div>
+          <a href="#kontakt" class="btn-outline-sm">Anfragen</a>
+        </div>
+
+        <!-- Stat card -->
+        <div class="bento-card bento-stat glass reveal">
+          <div class="bento-stat-num counter" data-target="14">0</div>
+          <div class="bento-stat-label">Tage Ø<br/>Lieferzeit</div>
+        </div>
+
+        <!-- Online Shop -->
+        <div class="bento-card bento-shop glass reveal">
+          <div class="bento-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          </div>
+          <h3>Online Shop</h3>
+          <p>Verkaufen Sie Produkte direkt online — mit sicherem Checkout und einfachem Bestellmanagement.</p>
+          <div class="bento-price">ab <strong>1.990 €</strong></div>
+          <a href="#kontakt" class="btn-outline-sm">Anfragen</a>
+        </div>
+
+        <!-- Feature pill cards -->
+        <div class="bento-card bento-pill glass reveal">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--em-400)" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          <span>Ladezeit &lt; 2 Sek.</span>
+        </div>
+        <div class="bento-card bento-pill glass reveal">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--em-400)" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+          <span>Mobile First</span>
+        </div>
+        <div class="bento-card bento-pill glass reveal">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--em-400)" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <span>SEO-Ready</span>
+        </div>
+        <div class="bento-card bento-pill glass reveal">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--em-400)" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>DSGVO konform</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ ÜBER MICH — Two-column cinematic ═══════════ -->
+  <section id="ueber-mich" class="section-alt">
+    <div class="container about-layout">
+      <div class="about-visual reveal">
+        <div class="about-frame">
+          <div class="about-photo">
+            <div class="photo-glow"></div>
+            <div class="initials-block">S</div>
+          </div>
+          <div class="about-float-card glass">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--em-400)" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span>50+ Projekte erfolgreich</span>
+          </div>
+          <div class="about-float-stat glass">
+            <div class="float-num">98%</div>
+            <div class="float-text">Zufriedene Kunden</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-text reveal">
+        <span class="section-tag">Über mich</span>
+        <h2>Kein anonymes Team.<br/><span class="gradient-text">Ich. Direkt.</span></h2>
+        <p class="about-lead">Ich bin Samuel — Gründer und einziger Ansprechpartner hinter GrazeStudio. Sie sprechen mit dem Menschen, der Ihre Website baut. Kein Ping-Pong, kein Projektmanager dazwischen.</p>
+        <p>Seit mehreren Jahren baue ich Webauftritte, die für ihre Besitzer wirklich arbeiten — für Handwerker, Gastronomen, Startups und alles dazwischen. Was mich antreibt: messbare Ergebnisse, nicht schöne Mockups.</p>
+        <div class="value-grid">
+          <div class="value-block">
+            <div class="value-num">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--em-500)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.92 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div>
+              <strong>Direkte Kommunikation</strong>
+              <span>Immer persönlich erreichbar</span>
+            </div>
+          </div>
+          <div class="value-block">
+            <div class="value-num">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--em-500)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div>
+              <strong>Ehrliche Beratung</strong>
+              <span>Was Sie brauchen, nicht was am meisten kostet</span>
+            </div>
+          </div>
+          <div class="value-block">
+            <div class="value-num">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--em-500)" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div>
+              <strong>Messbare Ergebnisse</strong>
+              <span>Anfragen statt nur schöne Designs</span>
+            </div>
+          </div>
+        </div>
+        <a href="#kontakt" class="btn-primary">Lernen wir uns kennen →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ PROZESS — Horizontal Timeline ═══════════ -->
+  <section id="prozess">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <span class="section-tag">Ablauf</span>
+        <h2>Von 0 zur fertigen Website <span class="gradient-text">in 4 Schritten.</span></h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-line" aria-hidden="true"></div>
+        <div class="timeline-steps">
+          <div class="t-step reveal">
+            <div class="t-dot"><span>01</span></div>
+            <div class="t-card glass">
+              <h3>Erstgespräch</h3>
+              <p>Kostenlos & unverbindlich. Wir klären Ziele, Zeitplan und ob wir zusammenpassen.</p>
+              <div class="t-time">⏱ 30 Min</div>
+            </div>
+          </div>
+          <div class="t-step reveal">
+            <div class="t-dot"><span>02</span></div>
+            <div class="t-card glass">
+              <h3>Konzept</h3>
+              <p>Struktur, Wireframes und Designrichtung — Sie sehen alles und geben Feedback.</p>
+              <div class="t-time">⏱ 1–2 Tage</div>
+            </div>
+          </div>
+          <div class="t-step reveal">
+            <div class="t-dot"><span>03</span></div>
+            <div class="t-card glass">
+              <h3>Umsetzung</h3>
+              <p>Ich entwickle und Sie bekommen regelmäßige Updates. Kein Verschwinden im Nichts.</p>
+              <div class="t-time">⏱ 7–21 Tage</div>
+            </div>
+          </div>
+          <div class="t-step reveal">
+            <div class="t-dot"><span>04</span></div>
+            <div class="t-card glass">
+              <h3>Launch</h3>
+              <p>Go live, Übergabe aller Zugänge und 1 Monat kostenloser Support.</p>
+              <div class="t-time">⏱ 1 Tag</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ HIGHLIGHTS GALLERY — Apple-Style ═══════════ -->
+  <section id="highlights">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <span class="section-tag">Was uns ausmacht</span>
+        <h2>Websites, die in <span class="gradient-text">jeder Hinsicht</span> glänzen.</h2>
+        <p class="hl-lead">Jedes Detail ist durchdacht — von der ersten Sekunde bis zum letzten Pixel.</p>
+      </div>
+    </div>
+    <div class="hl-track-outer">
+      <div class="hl-track" id="hlTrack">
+
+        <!-- Slide 1 — Design -->
+        <div class="hl-slide playing">
+          <div class="container hl-card-inner">
+            <div class="hl-visual" aria-hidden="true">
+              <div class="hl-vis-design">
+                <div class="hl-browser-mini">
+                  <div class="hl-brow-bar">
+                    <div class="hl-dot-trio"><i></i><i></i><i></i></div>
+                    <div class="hl-url-bar">grazestudio.at</div>
+                  </div>
+                  <div class="hl-brow-body">
+                    <div class="hl-page-hero">
+                      <div class="hl-page-hero-nav"><span></span><span></span><span></span></div>
+                      <div class="hl-page-hero-text"><div class="hl-ph-line"></div><div class="hl-ph-line short"></div><div class="hl-ph-btn"></div></div>
+                    </div>
+                    <div class="hl-page-cards">
+                      <div class="hl-page-card"></div>
+                      <div class="hl-page-card"></div>
+                      <div class="hl-page-card"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="hl-design-float hl-df1 glass">Über uns</div>
+                <div class="hl-design-float hl-df2 glass">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--em-400)" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  Jetzt anfragen
+                </div>
+              </div>
+            </div>
+            <div class="hl-text">
+              <span class="hl-tag-label">01 — Design</span>
+              <h3>Kein Template.<br/>Ihr individuelles<br/><span class="gradient-text">Design.</span></h3>
+              <p>Jede Website entsteht von Grund auf neu — passend zu Ihrer Marke, Ihrer Branche und Ihren Zielen. Kein Copy-Paste, kein Baukastensystem. Nur handgefertigtes Design, das Vertrauen schafft.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 — Geschwindigkeit -->
+        <div class="hl-slide">
+          <div class="container hl-card-inner">
+            <div class="hl-visual" aria-hidden="true">
+              <div class="hl-vis-speed">
+                <div class="hl-gauge-card glass">
+                  <div class="hl-gauge-label-top">Google PageSpeed Score</div>
+                  <svg class="hl-gauge" viewBox="0 0 200 180">
+                    <circle cx="100" cy="110" r="80" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="14" stroke-dasharray="251.2" stroke-dashoffset="62.8" stroke-linecap="round" transform="rotate(135 100 110)"/>
+                    <circle cx="100" cy="110" r="80" fill="none" stroke="url(#gGrad)" stroke-width="14" stroke-dasharray="251.2" stroke-dashoffset="62.8" stroke-linecap="round" transform="rotate(135 100 110)" class="hl-gauge-arc"/>
+                    <defs>
+                      <linearGradient id="gGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#059669"/>
+                        <stop offset="100%" stop-color="#6ee7b7"/>
+                      </linearGradient>
+                    </defs>
+                    <text x="100" y="104" text-anchor="middle" fill="#f0fdf4" font-size="38" font-weight="900" font-family="Archivo, sans-serif">98</text>
+                    <text x="100" y="126" text-anchor="middle" fill="#6b7280" font-size="11" font-family="Space Grotesk, sans-serif">von 100</text>
+                  </svg>
+                  <div class="hl-speed-tags">
+                    <div class="hl-speed-tag"><span class="hl-green-dot"></span>FCP: 0.8s</div>
+                    <div class="hl-speed-tag"><span class="hl-green-dot"></span>LCP: 1.2s</div>
+                    <div class="hl-speed-tag"><span class="hl-green-dot"></span>CLS: 0.00</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="hl-text">
+              <span class="hl-tag-label">02 — Geschwindigkeit</span>
+              <h3>Unter 2 Sekunden<br/>Ladezeit —<br/><span class="gradient-text">garantiert.</span></h3>
+              <p>Langsame Websites verlieren 53 % der Besucher. Alle GrazeStudio-Websites erreichen Google PageSpeed-Werte von 90+ — das verbessert das Ranking und hält Besucher auf der Seite.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 — Mobile -->
+        <div class="hl-slide">
+          <div class="container hl-card-inner">
+            <div class="hl-visual" aria-hidden="true">
+              <div class="hl-vis-mobile">
+                <div class="hl-phone">
+                  <div class="hl-phone-notch"></div>
+                  <div class="hl-phone-screen">
+                    <div class="hl-mob-hero"></div>
+                    <div class="hl-mob-content">
+                      <div class="hl-mob-line"></div>
+                      <div class="hl-mob-line short"></div>
+                      <div class="hl-mob-cards">
+                        <div class="hl-mob-card"></div>
+                        <div class="hl-mob-card"></div>
+                      </div>
+                      <div class="hl-mob-btn"></div>
+                    </div>
+                  </div>
+                  <div class="hl-phone-home"></div>
+                </div>
+                <div class="hl-phone-glow"></div>
+              </div>
+            </div>
+            <div class="hl-text">
+              <span class="hl-tag-label">03 — Mobile First</span>
+              <h3>Perfekt auf<br/>jedem Gerät.<br/><span class="gradient-text">Immer.</span></h3>
+              <p>Über 65 % Ihrer Besucher kommen vom Smartphone. Alle Websites werden mobile-first entwickelt — und auf echten Geräten getestet, nicht nur im Browser.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4 — SEO -->
+        <div class="hl-slide">
+          <div class="container hl-card-inner">
+            <div class="hl-visual" aria-hidden="true">
+              <div class="hl-vis-seo">
+                <div class="hl-serp glass">
+                  <div class="hl-serp-header">
+                    <div class="hl-serp-logo">G</div>
+                    <div class="hl-serp-bar">Schreinerei Graz <span>×</span></div>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                  </div>
+                  <div class="hl-serp-results">
+                    <div class="hl-serp-result hl-rank1">
+                      <div class="hl-rank-badge">#1</div>
+                      <div class="hl-result-content">
+                        <div class="hl-result-url">schreinerei-maier.at › start</div>
+                        <div class="hl-result-title">Schreinerei Maier Graz – Maßmöbel &amp; Innenausbau</div>
+                        <div class="hl-result-desc">Hochwertige Holzarbeiten in Graz. ✓ Kostenlose Beratung ✓ 20 Jahre Erfahrung…</div>
+                      </div>
+                    </div>
+                    <div class="hl-serp-result hl-rank-other">
+                      <div class="hl-result-url muted">mitbewerber-graz.at ›</div>
+                      <div class="hl-result-title muted">Schreiner in Graz — Holzarbeiten</div>
+                    </div>
+                    <div class="hl-serp-result hl-rank-other">
+                      <div class="hl-result-url muted">anderer-anbieter.at ›</div>
+                      <div class="hl-result-title muted">Tischlerei Graz &amp; Umgebung</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="hl-text">
+              <span class="hl-tag-label">04 — SEO</span>
+              <h3>Auf Google<br/>gefunden —<br/><span class="gradient-text">von Anfang an.</span></h3>
+              <p>SEO ist kein Addon — es steckt in der Struktur jeder Website. Technische Optimierung, strukturierte Daten, sauberer Code und schnelle Ladezeiten von Tag eins.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 5 — Konversion -->
+        <div class="hl-slide">
+          <div class="container hl-card-inner">
+            <div class="hl-visual" aria-hidden="true">
+              <div class="hl-vis-conv">
+                <div class="hl-chart glass">
+                  <div class="hl-chart-header">
+                    <span class="hl-chart-label">Kundenanfragen / Monat</span>
+                    <span class="hl-chart-badge">+147%</span>
+                  </div>
+                  <div class="hl-bars" id="hlBars">
+                    <div class="hl-bar-wrap"><div class="hl-bar" style="--bh:28%"></div><span>Jan</span></div>
+                    <div class="hl-bar-wrap"><div class="hl-bar" style="--bh:36%"></div><span>Feb</span></div>
+                    <div class="hl-bar-wrap"><div class="hl-bar" style="--bh:40%"></div><span>Mär</span></div>
+                    <div class="hl-bar-wrap"><div class="hl-bar launch" style="--bh:48%"></div><span>Apr</span></div>
+                    <div class="hl-bar-wrap"><div class="hl-bar new" style="--bh:72%"></div><span>Mai</span></div>
+                    <div class="hl-bar-wrap"><div class="hl-bar new" style="--bh:88%"></div><span>Jun</span></div>
+                    <div class="hl-bar-wrap"><div class="hl-bar new" style="--bh:100%"></div><span>Jul</span></div>
+                  </div>
+                  <div class="hl-launch-marker">
+                    <div class="hl-launch-line"></div>
+                    <span class="hl-launch-label">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="var(--em-400)" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                      Launch
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="hl-text">
+              <span class="hl-tag-label">05 — Konversion</span>
+              <h3>Mehr Anfragen.<br/>Mehr Umsatz.<br/><span class="gradient-text">Messbar.</span></h3>
+              <p>Design allein verkauft nicht. Jede Seite wird psychologisch optimiert — klare Handlungsaufforderungen, Vertrauenssignale und eine Struktur, die Besucher in Kunden verwandelt.</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /hl-track -->
+
+      <!-- Dot Navigation -->
+      <div class="hl-dotnav" id="hlDotnav" role="tablist" aria-label="Highlights Navigation">
+        <button class="hl-dot active" data-idx="0" aria-label="Design"><div class="hl-dot-progress"></div></button>
+        <button class="hl-dot" data-idx="1" aria-label="Geschwindigkeit"><div class="hl-dot-progress"></div></button>
+        <button class="hl-dot" data-idx="2" aria-label="Mobile"><div class="hl-dot-progress"></div></button>
+        <button class="hl-dot" data-idx="3" aria-label="SEO"><div class="hl-dot-progress"></div></button>
+        <button class="hl-dot" data-idx="4" aria-label="Konversion"><div class="hl-dot-progress"></div></button>
+      </div>
+    </div><!-- /hl-track-outer -->
+  </section>
+
+  <!-- ═══════════ STATS BAND ═══════════ -->
+  <div class="stats-band">
+    <div class="container stats-grid">
+      <div class="stat-item reveal">
+        <div class="stat-number counter" data-target="50">0</div>
+        <div class="stat-label">Projekte<br/>abgeschlossen</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item reveal">
+        <div class="stat-number counter" data-target="98">0</div>
+        <div class="stat-unit">%</div>
+        <div class="stat-label">Zufriedene<br/>Kunden</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item reveal">
+        <div class="stat-number counter" data-target="14">0</div>
+        <div class="stat-label">Tage Ø<br/>Lieferzeit</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item reveal">
+        <div class="stat-number">1</div>
+        <div class="stat-label">Direkter<br/>Ansprechpartner</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ BROWSER SHOWCASE ═══════════ -->
+  <section id="showcase" class="section-alt">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <span class="section-tag">Showcase</span>
+        <h2>Echte Projekte.<br/><span class="gradient-text">Echte Ergebnisse.</span></h2>
+      </div>
+
+      <div class="showcase-browser reveal">
+        <div class="browser-chrome glass">
+          <div class="browser-bar">
+            <div class="browser-dots"><i></i><i></i><i></i></div>
+            <div class="browser-url" id="browserUrl">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="var(--em-400)" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span id="browserUrlText">schreinerei-maier.at</span>
+            </div>
+          </div>
+          <div class="browser-viewport">
+            <!-- Project 1: Schreinerei -->
+            <div class="browser-scene active" data-project="0">
+              <div class="bscene-hero" style="background:linear-gradient(155deg,#064e3b,#065f46 55%,#10b981)">
+                <div class="bscene-nav"><div class="bscene-logo"></div><div class="bscene-nav-links"></div></div>
+                <div class="bscene-headline"><div class="bsh-line"></div><div class="bsh-line short"></div><div class="bsh-btn"></div></div>
+              </div>
+              <div class="bscene-body">
+                <div class="bscene-grid3">
+                  <div class="bscene-card"></div><div class="bscene-card"></div><div class="bscene-card"></div>
+                </div>
+              </div>
+            </div>
+            <!-- Project 2: Restaurant -->
+            <div class="browser-scene" data-project="1">
+              <div class="bscene-hero" style="background:linear-gradient(155deg,#1e1b4b,#312e81 55%,#4f46e5)">
+                <div class="bscene-nav"><div class="bscene-logo"></div><div class="bscene-nav-links"></div></div>
+                <div class="bscene-headline"><div class="bsh-line"></div><div class="bsh-line short"></div><div class="bsh-btn alt"></div></div>
+              </div>
+              <div class="bscene-body">
+                <div class="bscene-grid2">
+                  <div class="bscene-img-block"></div>
+                  <div class="bscene-text-block"><div class="bstb-line"></div><div class="bstb-line"></div><div class="bstb-line short"></div></div>
+                </div>
+              </div>
+            </div>
+            <!-- Project 3: Beauty -->
+            <div class="browser-scene" data-project="2">
+              <div class="bscene-hero" style="background:linear-gradient(155deg,#4a044e,#86198f 55%,#c026d3)">
+                <div class="bscene-nav"><div class="bscene-logo"></div><div class="bscene-nav-links"></div></div>
+                <div class="bscene-headline"><div class="bsh-line"></div><div class="bsh-line short"></div><div class="bsh-btn pink"></div></div>
+              </div>
+              <div class="bscene-body">
+                <div class="bscene-grid3">
+                  <div class="bscene-card purple"></div><div class="bscene-card purple"></div><div class="bscene-card purple"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project selector -->
+        <div class="showcase-tabs">
+          <button class="sc-tab active" data-project="0" data-url="schreinerei-maier.at">
+            <span class="sc-tab-tag">Handwerk</span>
+            <strong>Schreinerei Maier</strong>
+            <span class="sc-tab-result">+40% Anfragen</span>
+          </button>
+          <button class="sc-tab" data-project="1" data-url="bella-vista-graz.at">
+            <span class="sc-tab-tag">Gastronomie</span>
+            <strong>Restaurant Bella Vista</strong>
+            <span class="sc-tab-result">Online-Reservierung</span>
+          </button>
+          <button class="sc-tab" data-project="2" data-url="studio-lumiere.at">
+            <span class="sc-tab-tag">Beauty</span>
+            <strong>Studio Lumière</strong>
+            <span class="sc-tab-result">Ausgebucht in 7 Tagen</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ REFERENZEN — Masonry ═══════════ -->
+  <section id="referenzen" class="section-alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Referenzen</span>
+        <h2>Projekte, auf die ich <span class="gradient-text">stolz bin.</span></h2>
+      </div>
+      <div class="masonry-grid">
+        <div class="masonry-card tall reveal" style="--card-bg: linear-gradient(160deg,#064e3b,#065f46)">
+          <div class="masonry-overlay glass">
+            <span class="ref-tag">Handwerk</span>
+            <h4>Schreinerei Maier</h4>
+            <p>Neubau mit Galerie & Anfrage-System. +40% mehr Kontaktanfragen im ersten Monat.</p>
+            <div class="ref-result">+ 40% Anfragen</div>
+          </div>
+        </div>
+        <div class="masonry-card reveal" style="--card-bg: linear-gradient(160deg,#1e1b4b,#312e81)">
+          <div class="masonry-overlay glass">
+            <span class="ref-tag">Gastronomie</span>
+            <h4>Restaurant Bella Vista</h4>
+            <p>Relaunch + Online-Reservierung.</p>
+          </div>
+        </div>
+        <div class="masonry-card reveal" style="--card-bg: linear-gradient(160deg,#0c4a6e,#0369a1)">
+          <div class="masonry-overlay glass">
+            <span class="ref-tag">E-Commerce</span>
+            <h4>SportOutlet24</h4>
+            <p>500+ Produkte. Konversionsrate x3.</p>
+            <div class="ref-result">3× Konversion</div>
+          </div>
+        </div>
+        <div class="masonry-card reveal" style="--card-bg: linear-gradient(160deg,#292524,#44403c)">
+          <div class="masonry-overlay glass">
+            <span class="ref-tag">Recht</span>
+            <h4>Kanzlei Dr. Weber</h4>
+            <p>Seriöser Auftritt + Terminbuchung.</p>
+          </div>
+        </div>
+        <div class="masonry-card tall reveal" style="--card-bg: linear-gradient(160deg,#4a044e,#86198f)">
+          <div class="masonry-overlay glass">
+            <span class="ref-tag">Beauty</span>
+            <h4>Studio Lumière</h4>
+            <p>Eleganter Auftritt mit Online-Buchungssystem. Vollständig ausgebuchte Termine innerhalb einer Woche.</p>
+            <div class="ref-result">Ausgebucht in 7 Tagen</div>
+          </div>
+        </div>
+        <div class="masonry-card reveal" style="--card-bg: linear-gradient(160deg,#172554,#1d4ed8)">
+          <div class="masonry-overlay glass">
+            <span class="ref-tag">Fitness</span>
+            <h4>FitBase Training</h4>
+            <p>Mitglieder-Plattform + Kursplan.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ TESTIMONIALS ═══════════ -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-header text-center reveal">
+        <span class="section-tag">Kundenstimmen</span>
+        <h2>Was echte Kunden <span class="gradient-text">sagen.</span></h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="t-quote glass reveal">
+          <div class="quote-mark">"</div>
+          <p>Samuel hat unsere alte, verstaubte Website komplett neu aufgestellt. Innerhalb von 2 Wochen hatten wir die erste Kundenanfrage über die neue Seite.</p>
+          <div class="stars">★★★★★</div>
+          <div class="t-author">
+            <div class="t-avatar">TM</div>
+            <div>
+              <strong>Thomas Maier</strong>
+              <span>Schreinerei Maier, Graz</span>
+            </div>
+          </div>
+        </div>
+        <div class="t-quote glass reveal">
+          <div class="quote-mark">"</div>
+          <p>Endlich eine Website, bei der ich nicht mehr rot werde wenn ich sie zeige. Die Zusammenarbeit war unkompliziert — Samuel hat wirklich zugehört.</p>
+          <div class="stars">★★★★★</div>
+          <div class="t-author">
+            <div class="t-avatar">SK</div>
+            <div>
+              <strong>Sandra Klein</strong>
+              <span>Studio Lumière, Wien</span>
+            </div>
+          </div>
+        </div>
+        <div class="t-quote glass reveal">
+          <div class="quote-mark">"</div>
+          <p>Professionell, schnell und faires Preis-Leistungs-Verhältnis. Unser Shop läuft seit dem Launch ohne Probleme und die Konversionsrate hat sich verdreifacht.</p>
+          <div class="stars">★★★★★</div>
+          <div class="t-author">
+            <div class="t-avatar">MR</div>
+            <div>
+              <strong>Markus Richter</strong>
+              <span>SportOutlet24</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FAQ ═══════════ -->
+  <section id="faq" class="section-alt">
+    <div class="container faq-layout">
+      <div class="faq-left reveal">
+        <span class="section-tag">FAQ</span>
+        <h2>Häufige<br/><span class="gradient-text">Fragen.</span></h2>
+        <p>Nicht gefunden was Sie suchen?</p>
+        <a href="#kontakt" class="btn-outline">Direkt fragen →</a>
+      </div>
+      <div class="faq-right">
+        <div class="faq-item reveal">
+          <button class="faq-q" onclick="toggleFaq(this)">Wie lange dauert die Entwicklung?<span class="faq-plus">+</span></button>
+          <div class="faq-a"><p>Eine Standard-Website ist in 7–21 Tagen fertig. Ein Online-Shop kann 3–6 Wochen dauern. Sie erhalten von Anfang an einen klaren Zeitplan — keine Überraschungen.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" onclick="toggleFaq(this)">Was kostet eine Website bei GrazeStudio?<span class="faq-plus">+</span></button>
+          <div class="faq-a"><p>Eine Business-Website beginnt ab 990 €, ein Relaunch ab 790 €, ein Online-Shop ab 1.990 €. Im kostenlosen Erstgespräch erstelle ich ein genaues Angebot für Ihr Projekt.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" onclick="toggleFaq(this)">Ich habe keine technischen Kenntnisse — ein Problem?<span class="faq-plus">+</span></button>
+          <div class="faq-a"><p>Überhaupt nicht. Ich erkläre alles verständlich, übernehme alle technischen Aufgaben und zeige Ihnen nach dem Launch, wie Sie Inhalte selbst einfach aktualisieren.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" onclick="toggleFaq(this)">Was brauche ich, um zu starten?<span class="faq-plus">+</span></button>
+          <div class="faq-a"><p>Idealerweise: Ihre Vorstellungen, Texte, Bilder und Ihr Logo. Falls etwas fehlt — kein Problem, ich helfe Ihnen dabei, gute Inhalte zu formulieren.</p></div>
+        </div>
+        <div class="faq-item reveal">
+          <button class="faq-q" onclick="toggleFaq(this)">Gibt es Support nach dem Launch?<span class="faq-plus">+</span></button>
+          <div class="faq-a"><p>Ja. Jedes Projekt beinhaltet 1 Monat kostenlosen Support. Danach biete ich günstige Wartungspakete an, damit Ihre Website immer sicher und aktuell bleibt.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ KONTAKT ═══════════ -->
+  <section id="kontakt">
+    <div class="container">
+      <div class="contact-layout">
+        <div class="contact-left reveal">
+          <span class="section-tag">Kontakt</span>
+          <h2>Bereit?<br/><span class="gradient-text">Lassen Sie uns reden.</span></h2>
+          <p class="contact-lead">Das erste Gespräch ist kostenlos und unverbindlich. Ich melde mich persönlich innerhalb von 24 Stunden.</p>
+          <div class="contact-details">
+            <div class="contact-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--em-500)" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>hallo@grazestudio.at</span>
+            </div>
+            <div class="contact-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--em-500)" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.99 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.92 1h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              <span>+43 123 456 789</span>
+            </div>
+            <div class="contact-row">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--em-500)" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Graz, Österreich</span>
+            </div>
+          </div>
+          <div class="guarantee glass">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--em-400)" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <p><strong>Keine Verpflichtung.</strong> Das Erstgespräch ist 100 % kostenlos. Wir schauen, ob wir zusammenpassen.</p>
+          </div>
+        </div>
+        <div class="glass contact-form-card reveal">
+          <form id="contactForm" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Name *</label>
+                <input type="text" name="name" placeholder="Max Mustermann" required />
+              </div>
+              <div class="form-group">
+                <label>Unternehmen</label>
+                <input type="text" name="company" placeholder="Musterfirma GmbH" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>E-Mail *</label>
+                <input type="email" name="email" placeholder="max@firma.at" required />
+              </div>
+              <div class="form-group">
+                <label>Telefon</label>
+                <input type="tel" name="phone" placeholder="+43 123 456 789" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Leistung *</label>
+              <select name="service" required>
+                <option value="" disabled selected>Bitte wählen…</option>
+                <option>Website Neubau</option>
+                <option>Website Relaunch</option>
+                <option>Online Shop</option>
+                <option>Ich bin noch unsicher</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Budget (optional)</label>
+              <select name="budget">
+                <option value="" disabled selected>Bitte wählen…</option>
+                <option>500 – 1.000 €</option>
+                <option>1.000 – 2.500 €</option>
+                <option>2.500 – 5.000 €</option>
+                <option>Über 5.000 €</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Nachricht *</label>
+              <textarea name="message" rows="4" placeholder="Kurz Ihr Projekt beschreiben…" required></textarea>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" id="dsgvo" required />
+              <label for="dsgvo">Ich stimme der <a href="#" class="link">Datenschutzerklärung</a> zu. *</label>
+            </div>
+            <button type="submit" class="btn-primary w-full" id="submitBtn">Anfrage absenden →</button>
+            <div class="form-success" id="formSuccess">✓ Danke! Ich melde mich persönlich innerhalb von 24 Stunden.</div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#hero" class="logo">Graze<span>Studio</span></a>
+        <p>Websites die wirklich verkaufen — persönlich umgesetzt in Graz.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <strong>Leistungen</strong>
+          <a href="#leistungen">Website Neubau</a>
+          <a href="#leistungen">Website Relaunch</a>
+          <a href="#leistungen">Online Shop</a>
+        </div>
+        <div class="footer-col">
+          <strong>Info</strong>
+          <a href="#ueber-mich">Über mich</a>
+          <a href="#prozess">Ablauf</a>
+          <a href="#faq">FAQ</a>
+        </div>
+        <div class="footer-col">
+          <strong>Rechtliches</strong>
+          <a href="#">Impressum</a>
+          <a href="#">Datenschutz</a>
+          <a href="#">AGB</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 GrazeStudio · Made with ♥ in Graz</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
