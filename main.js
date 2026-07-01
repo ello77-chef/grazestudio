@@ -1,3 +1,55 @@
+// ============================================================
+// ★ LANDING-CONFIG — HIER ANPASSEN (kein Code durchsuchen nötig)
+// ============================================================
+const SITE_CONFIG = {
+  // --- HERO-HEADLINE A/B-TEST ---------------------------------
+  // Aktive Variante umstellen: 'A', 'B' oder 'C'. Fertig.
+  activeHeadline: 'A',
+  headlines: {
+    // A) Konkretes Ergebnis + Zeitrahmen (Standard, stark für kalten Ad-Traffic)
+    A: {
+      line1: 'Mehr Kundenanfragen',
+      line2: 'für Ihr Unternehmen —',
+      highlight: 'online in 14 Tagen.',
+      sub: 'Professionelle Websites für KMU &amp; lokale Betriebe. Von einem Ansprechpartner, der liefert was er verspricht.',
+    },
+    // B) Zielgruppen-spezifisch (Handwerker & lokale Betriebe)
+    B: {
+      line1: 'Websites für Handwerker',
+      line2: '&amp; lokale Betriebe, die',
+      highlight: 'neue Kunden bringen.',
+      sub: 'Persönlich umgesetzt in Graz — schnell, ehrlich, ohne Agentur-Overhead.',
+    },
+    // C) Kurz & ergebnisorientiert (gefunden + gebucht)
+    C: {
+      line1: 'Ihr Betrieb — online',
+      line2: 'gefunden und endlich',
+      highlight: 'gebucht.',
+      sub: 'Konversionsstarke Websites für KMU &amp; lokale Dienstleister. Ein Ansprechpartner, der liefert.',
+    },
+  },
+
+  // --- KAPAZITÄTS-/VERKNAPPUNGSHINWEIS ------------------------
+  // Monatlich aktualisieren. Erscheint im Hero UND über dem Kontaktformular.
+  capacityNote: 'Nur noch 2 von 3 Projekt-Plätzen diesen Monat frei',
+};
+
+// Apply config to the DOM (headline, subheadline, capacity notes)
+(function applySiteConfig() {
+  const h = SITE_CONFIG.headlines[SITE_CONFIG.activeHeadline];
+  const headlineEl = document.getElementById('heroHeadline');
+  const subEl = document.getElementById('heroSub');
+  if (h && headlineEl && headlineEl.dataset.variant !== SITE_CONFIG.activeHeadline) {
+    headlineEl.innerHTML = `${h.line1}<br />${h.line2}<br /><em>${h.highlight}</em>`;
+    headlineEl.dataset.variant = SITE_CONFIG.activeHeadline;
+  }
+  if (h && subEl) subEl.innerHTML = h.sub;
+
+  document.querySelectorAll('#capacityText, #capacityTextForm').forEach((el) => {
+    el.textContent = SITE_CONFIG.capacityNote;
+  });
+})();
+
 // Navbar scroll
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {

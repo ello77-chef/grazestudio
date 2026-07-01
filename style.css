@@ -783,6 +783,19 @@ section { padding:120px 0; }
 .guarantee strong { color:var(--text-1); }
 
 .contact-form-card { padding:36px 32px; }
+
+/* Quick-Contact: capacity note + intro above the form */
+.form-capacity {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(16,185,129,.1); border:1px solid rgba(16,185,129,.28);
+  color:var(--em-400); padding:7px 14px; border-radius:999px;
+  font-size:.72rem; font-weight:700; margin-bottom:18px;
+}
+.form-intro { margin-bottom:20px; display:flex; flex-direction:column; gap:3px; }
+.form-intro strong { font-family:'Archivo',sans-serif; font-size:1.15rem; color:var(--text-1); }
+.form-intro span { font-size:.85rem; color:var(--text-3); }
+.label-optional { color:var(--text-3); font-weight:400; text-transform:none; }
+
 form { display:flex; flex-direction:column; gap:16px; }
 .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
 .form-group { display:flex; flex-direction:column; gap:6px; }

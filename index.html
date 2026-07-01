@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=cta-spacing" />
+  <link rel="stylesheet" href="style.css?v=conv-opt" />
 </head>
 <body>
 
@@ -50,15 +50,15 @@
       <div class="hero-left">
         <a href="#kontakt" class="availability-pill">
           <span class="avail-dot"></span>
-          Verfügbar für neue Projekte
+          <span id="capacityText">Nur noch 2 von 3 Projekt-Plätzen diesen Monat frei</span>
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6.5 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <h1>
-          Websites,<br />
-          die wirklich<br />
-          <em>verkaufen.</em>
+        <h1 id="heroHeadline" data-variant="A">
+          Mehr Kundenanfragen<br />
+          für Ihr Unternehmen —<br />
+          <em>online in 14 Tagen.</em>
         </h1>
-        <p class="hero-desc">Professionelle Webauftritte für KMU und Startups — von einem einzigen Ansprechpartner, der liefert was er verspricht.</p>
+        <p class="hero-desc" id="heroSub">Professionelle Websites für KMU &amp; lokale Betriebe. Von einem Ansprechpartner, der liefert was er verspricht.</p>
         <div class="hero-actions">
           <a href="#kontakt" class="btn-primary">Kostenloses Erstgespräch</a>
           <a href="#referenzen" class="btn-text">
@@ -897,56 +897,32 @@
           </div>
         </div>
         <div class="glass contact-form-card reveal">
+          <div class="form-capacity">
+            <span class="avail-dot"></span>
+            <span id="capacityTextForm">Nur noch 2 von 3 Projekt-Plätzen diesen Monat frei</span>
+          </div>
+          <div class="form-intro">
+            <strong>In 30 Sekunden anfragen.</strong>
+            <span>Ich melde mich persönlich innerhalb von 24 Stunden.</span>
+          </div>
           <form id="contactForm" onsubmit="handleSubmit(event)">
-            <div class="form-row">
-              <div class="form-group">
-                <label>Name *</label>
-                <input type="text" name="name" placeholder="Max Mustermann" required />
-              </div>
-              <div class="form-group">
-                <label>Unternehmen</label>
-                <input type="text" name="company" placeholder="Musterfirma GmbH" />
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label>E-Mail *</label>
-                <input type="email" name="email" placeholder="max@firma.at" required />
-              </div>
-              <div class="form-group">
-                <label>Telefon</label>
-                <input type="tel" name="phone" placeholder="+43 123 456 789" />
-              </div>
+            <div class="form-group">
+              <label>Name *</label>
+              <input type="text" name="name" placeholder="Max Mustermann" required />
             </div>
             <div class="form-group">
-              <label>Leistung *</label>
-              <select name="service" required>
-                <option value="" disabled selected>Bitte wählen…</option>
-                <option>Website Neubau</option>
-                <option>Website Relaunch</option>
-                <option>Online Shop</option>
-                <option>Ich bin noch unsicher</option>
-              </select>
+              <label>Telefon oder E-Mail *</label>
+              <input type="text" name="contact" placeholder="+43 123 456 789 oder max@firma.at" required />
             </div>
             <div class="form-group">
-              <label>Budget (optional)</label>
-              <select name="budget">
-                <option value="" disabled selected>Bitte wählen…</option>
-                <option>500 – 1.000 €</option>
-                <option>1.000 – 2.500 €</option>
-                <option>2.500 – 5.000 €</option>
-                <option>Über 5.000 €</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Nachricht *</label>
-              <textarea name="message" rows="4" placeholder="Kurz Ihr Projekt beschreiben…" required></textarea>
+              <label>Kurz worum geht's? <span class="label-optional">(optional)</span></label>
+              <textarea name="message" rows="3" placeholder="z.B. Neue Website für mein Café…"></textarea>
             </div>
             <div class="form-check">
               <input type="checkbox" id="dsgvo" required />
-              <label for="dsgvo">Ich stimme der <a href="#" class="link">Datenschutzerklärung</a> zu. *</label>
+              <label for="dsgvo">Ich stimme der <a href="datenschutz.html" class="link">Datenschutzerklärung</a> zu. *</label>
             </div>
-            <button type="submit" class="btn-primary w-full" id="submitBtn">Anfrage absenden →</button>
+            <button type="submit" class="btn-primary w-full" id="submitBtn">Jetzt kostenlos anfragen →</button>
             <div class="form-success" id="formSuccess">✓ Danke! Ich melde mich persönlich innerhalb von 24 Stunden.</div>
           </form>
         </div>
@@ -976,9 +952,9 @@
         </div>
         <div class="footer-col">
           <strong>Rechtliches</strong>
-          <a href="#">Impressum</a>
-          <a href="#">Datenschutz</a>
-          <a href="#">AGB</a>
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+          <a href="agb.html">AGB</a>
         </div>
       </div>
     </div>
@@ -987,6 +963,6 @@
     </div>
   </footer>
 
-  <script src="main.js?v=swipe-carousels"></script>
+  <script src="main.js?v=conv-opt"></script>
 </body>
 </html>
