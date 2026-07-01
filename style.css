@@ -862,7 +862,8 @@ footer { background:#01060303; border-top:1px solid var(--border); padding-top:6
   section { padding:80px 0; }
   .nav-links { display:none; }
   .burger { display:flex; }
-  h1 { font-size:2.8rem; }
+  /* Scale with viewport so long words (Kundenanfragen, Unternehmen) never overflow narrow phones; hyphens as a safety net */
+  h1 { font-size:clamp(1.9rem, 8.5vw, 2.7rem); overflow-wrap:break-word; hyphens:auto; }
   h2 { font-size:2rem; }
   .hero-right { display:none; }
   .cap-tabs { gap:8px; }
