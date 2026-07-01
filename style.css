@@ -45,9 +45,9 @@ body {
   overflow-x: hidden;
 }
 
-/* Fixed static 3D wave backdrop — sits behind everything below the hero.
-   Rendered once to canvas (no animation loop) and pinned via position:fixed,
-   so it never moves or redraws once you scroll past the header. */
+/* Animated 3D wave backdrop — sits behind everything below the hero.
+   Pinned via position:fixed so it never scrolls with the page; only the
+   wave motion inside the canvas animates in place. */
 .site-wave-bg {
   position: fixed; inset: 0; z-index: -1;
   width: 100%; height: 100%;

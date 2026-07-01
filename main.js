@@ -349,32 +349,37 @@ scTabs.forEach(tab => {
 });
 
 // ============================================================
-// SITE WAVE BACKGROUND — static 3D particle wave, fixed behind
-// every section below the hero. Rendered once to canvas (plus a
-// redraw on resize) — no animation loop, so it never moves once
-// you scroll past the header.
+// SITE WAVE BACKGROUND — animated 3D particle wave, fixed behind
+// every section below the hero. The canvas itself is pinned via
+// position:fixed, so it never scrolls with the page — only the
+// wave motion inside it animates in place.
 // ============================================================
 (function siteWaveBackground() {
   const canvas = document.getElementById('siteWaveBg');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const COLS = 46;
   const ROWS = 26;
-  const PHASE_X = 2.1; // frozen wave phase, picked for a pleasant crest/trough mix
-  const PHASE_Y = 4.6;
+  const SPEED = 0.012; // radians per frame — slow, gentle swell
 
-  function render() {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const width = window.innerWidth;
-    const height = window.innerHeight;
+  let width = 0, height = 0, dpr = 1;
+  let phase = 2.1;
+
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = window.innerWidth;
+    height = window.innerHeight;
 
     canvas.width = width * dpr;
     canvas.height = height * dpr;
     canvas.style.width = `${width}px`;
     canvas.style.height = `${height}px`;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
 
+  function render() {
     ctx.clearRect(0, 0, width, height);
 
     // Base backdrop
@@ -415,7 +420,7 @@ scTabs.forEach(tab => {
 
       for (let ix = 0; ix < COLS; ix++) {
         const u = ix / (COLS - 1);
-        const wave = Math.sin(ix * 0.35 + PHASE_X) * 0.5 + Math.sin(iy * 0.5 + PHASE_Y) * 0.5;
+        const wave = Math.sin(ix * 0.35 + phase) * 0.5 + Math.sin(iy * 0.5 + phase * 0.6) * 0.5;
 
         const x = width / 2 + (u - 0.5) * gridWidth * depth;
         const y = rowY - wave * 40 * depth;
@@ -455,8 +460,20 @@ scTabs.forEach(tab => {
     });
   }
 
-  render();
-  window.addEventListener('resize', render, { passive: true });
+  function tick() {
+    phase += SPEED;
+    render();
+    requestAnimationFrame(tick);
+  }
+
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
+
+  if (reduceMotion) {
+    render();
+  } else {
+    requestAnimationFrame(tick);
+  }
 })();
 
 // Form submit
