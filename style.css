@@ -360,7 +360,7 @@ section { padding:120px 0; }
    ════════════════════════════════ */
 #prozess { background:var(--bg-t); }
 
-.storyline { position:relative; margin-top:32px; height:560px; }
+.storyline { position:relative; margin-top:32px; height:640px; }
 .storyline-svg { position:absolute; inset:0; width:100%; height:100%; }
 
 .story-step {
@@ -370,17 +370,19 @@ section { padding:120px 0; }
   display:flex; flex-direction:column; align-items:center; gap:4px;
 }
 .story-icon {
-  width:76px; height:76px; border-radius:50%;
+  width:64px; height:64px; border-radius:50%;
   display:flex; align-items:center; justify-content:center;
   background:radial-gradient(circle at 35% 30%, rgba(16,185,129,.22), rgba(2,9,4,.4));
   border:1px solid rgba(16,185,129,.3);
   box-shadow:0 0 30px rgba(16,185,129,.18);
   margin-bottom:10px;
 }
-.story-icon img { width:56px; height:56px; }
-.story-step-num { font-family:'Archivo',sans-serif; font-size:.7rem; font-weight:800; color:var(--em-500); letter-spacing:.1em; }
-.story-step h3 { font-size:1.05rem; margin:2px 0 4px; }
-.story-step p { font-size:.82rem; }
+.story-icon img { width:40px; height:40px; display:block; }
+.story-step-num { font-family:'Archivo',sans-serif; font-size:.7rem; font-weight:800; color:var(--em-500); letter-spacing:.1em; position:relative; z-index:1; }
+/* Solid card behind the text so the connecting path passes behind it, not across bare text */
+.story-text { position:relative; z-index:1; margin-top:8px; padding:16px 18px; background:rgba(4,14,8,.92); }
+.story-text h3 { font-size:1.05rem; margin-bottom:4px; }
+.story-text p { font-size:.82rem; }
 .story-time { margin-top:6px; font-size:.72rem; color:var(--em-600); font-weight:700; }
 
 /* ════════════════════════════════
@@ -800,7 +802,7 @@ footer { background:#01060303; border-top:1px solid var(--border); padding-top:6
   .cap-browser { max-width:100%; }
   .about-layout { grid-template-columns:1fr; gap:48px; }
   .about-photo { width:100%; max-width:340px; margin:0 auto; }
-  .storyline { height:640px; }
+  .storyline { height:720px; }
   .story-step { width:180px; }
   .contact-layout { grid-template-columns:1fr; }
   .hl-card-inner { grid-template-columns:1fr; gap:40px; text-align:center; }
