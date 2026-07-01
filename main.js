@@ -348,6 +348,117 @@ scTabs.forEach(tab => {
   });
 });
 
+// ============================================================
+// SITE WAVE BACKGROUND — static 3D particle wave, fixed behind
+// every section below the hero. Rendered once to canvas (plus a
+// redraw on resize) — no animation loop, so it never moves once
+// you scroll past the header.
+// ============================================================
+(function siteWaveBackground() {
+  const canvas = document.getElementById('siteWaveBg');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  const COLS = 46;
+  const ROWS = 26;
+  const PHASE_X = 2.1; // frozen wave phase, picked for a pleasant crest/trough mix
+  const PHASE_Y = 4.6;
+
+  function render() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+    canvas.style.width = `${width}px`;
+    canvas.style.height = `${height}px`;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    ctx.clearRect(0, 0, width, height);
+
+    // Base backdrop
+    const bg = ctx.createLinearGradient(0, 0, 0, height);
+    bg.addColorStop(0, '#020904');
+    bg.addColorStop(0.55, '#04140b');
+    bg.addColorStop(1, '#020603');
+    ctx.fillStyle = bg;
+    ctx.fillRect(0, 0, width, height);
+
+    // Soft ambient glows for atmospheric depth (brand emerald)
+    const glow1 = ctx.createRadialGradient(width * 0.22, height * 0.15, 0, width * 0.22, height * 0.15, Math.max(width, height) * 0.5);
+    glow1.addColorStop(0, 'rgba(6,78,59,0.35)');
+    glow1.addColorStop(1, 'rgba(6,78,59,0)');
+    ctx.fillStyle = glow1;
+    ctx.fillRect(0, 0, width, height);
+
+    const glow2 = ctx.createRadialGradient(width * 0.8, height * 0.6, 0, width * 0.8, height * 0.6, Math.max(width, height) * 0.55);
+    glow2.addColorStop(0, 'rgba(4,120,87,0.22)');
+    glow2.addColorStop(1, 'rgba(4,120,87,0)');
+    ctx.fillStyle = glow2;
+    ctx.fillRect(0, 0, width, height);
+
+    // Static 3D wave particle grid (single frozen frame — no time variable).
+    // Sized to fill the whole viewport so the wave shape reads clearly no
+    // matter which section is scrolled behind the fixed background.
+    const horizonY = height * 0.06;
+    const floorY = height * 0.98;
+    const gridWidth = width * 1.35;
+
+    const rowPoints = [];
+
+    for (let iy = 0; iy < ROWS; iy++) {
+      const t = iy / (ROWS - 1); // 0 = far/back, 1 = near/front
+      const depth = 0.28 + t * 0.72; // perspective scale
+      const rowY = horizonY + t * t * (floorY - horizonY);
+      const points = [];
+
+      for (let ix = 0; ix < COLS; ix++) {
+        const u = ix / (COLS - 1);
+        const wave = Math.sin(ix * 0.35 + PHASE_X) * 0.5 + Math.sin(iy * 0.5 + PHASE_Y) * 0.5;
+
+        const x = width / 2 + (u - 0.5) * gridWidth * depth;
+        const y = rowY - wave * 40 * depth;
+        const brightness = (wave + 1) / 2; // 0..1
+        points.push({ x, y, brightness, depth });
+      }
+      rowPoints.push(points);
+    }
+
+    // Faint connecting lines through each row first, to read as a wave mesh
+    rowPoints.forEach((points) => {
+      ctx.beginPath();
+      points.forEach((p, i) => (i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y)));
+      const avgDepth = points[Math.floor(points.length / 2)].depth;
+      ctx.strokeStyle = `rgba(52, 211, 153, ${(0.05 + avgDepth * 0.09).toFixed(3)})`;
+      ctx.lineWidth = 1;
+      ctx.stroke();
+    });
+
+    // Particles on top of the mesh — brand green, brighter/bigger at crests
+    rowPoints.forEach((points) => {
+      points.forEach(({ x, y, brightness, depth }) => {
+        if (x < -20 || x > width + 20 || y < -20 || y > height + 20) return;
+        const size = (0.9 + brightness * 2.1) * depth;
+
+        // Interpolate brand green: dark emerald (troughs) -> bright mint (crests)
+        const r = Math.round(6 + brightness * 46);
+        const g = Math.round(40 + brightness * 180);
+        const b = Math.round(24 + brightness * 118);
+        const alpha = (0.28 + brightness * 0.62) * depth;
+
+        ctx.beginPath();
+        ctx.arc(x, y, size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha.toFixed(3)})`;
+        ctx.fill();
+      });
+    });
+  }
+
+  render();
+  window.addEventListener('resize', render, { passive: true });
+})();
+
 // Form submit
 function handleSubmit(e) {
   e.preventDefault();
