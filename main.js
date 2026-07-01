@@ -338,6 +338,31 @@ capTabs.forEach(tab => {
   });
 });
 
+// Swipe gesture support (touch drag left/right) for carousels
+function enableSwipe(el, onSwipeLeft, onSwipeRight) {
+  if (!el) return;
+  let startX = 0, startY = 0, tracking = false;
+
+  el.addEventListener('touchstart', (e) => {
+    const t = e.touches[0];
+    startX = t.clientX;
+    startY = t.clientY;
+    tracking = true;
+  }, { passive: true });
+
+  el.addEventListener('touchend', (e) => {
+    if (!tracking) return;
+    tracking = false;
+    const t = e.changedTouches[0];
+    const dx = t.clientX - startX;
+    const dy = t.clientY - startY;
+    const SWIPE_THRESHOLD = 40;
+    if (Math.abs(dx) > SWIPE_THRESHOLD && Math.abs(dx) > Math.abs(dy)) {
+      if (dx < 0) onSwipeLeft(); else onSwipeRight();
+    }
+  }, { passive: true });
+}
+
 // Highlights Gallery — Apple-style auto-advancing card slider
 const hlTrack = document.getElementById('hlTrack');
 const hlDots = document.querySelectorAll('.hl-dot');
@@ -365,6 +390,11 @@ function hlGoto(idx) {
 if (hlTrack && hlDots.length) {
   hlDots.forEach(d => d.addEventListener('click', () => hlGoto(parseInt(d.dataset.idx, 10))));
   hlGoto(0);
+  enableSwipe(
+    document.querySelector('.hl-track-outer'),
+    () => hlGoto((hlCurrent + 1) % hlDots.length),
+    () => hlGoto((hlCurrent - 1 + hlDots.length) % hlDots.length)
+  );
 }
 
 // Testimonials — arrow + dot carousel
@@ -385,6 +415,11 @@ if (tcTrack && tcDots.length) {
   tcPrev.addEventListener('click', () => tcGoto(tcCurrent - 1));
   tcNext.addEventListener('click', () => tcGoto(tcCurrent + 1));
   tcGoto(0);
+  enableSwipe(
+    document.querySelector('.tc-viewport'),
+    () => tcGoto(tcCurrent + 1),
+    () => tcGoto(tcCurrent - 1)
+  );
 }
 
 // ============================================================
