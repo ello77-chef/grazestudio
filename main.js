@@ -256,6 +256,22 @@ function animateCounter(el) {
   requestAnimationFrame(update);
 }
 
+// Stats ring fill — animates in sync with its counter (same duration/easing)
+function animateRing(el) {
+  const target = parseInt(el.dataset.target, 10) / 100;
+  const circumference = 2 * Math.PI * el.r.baseVal.value;
+  el.style.strokeDasharray = `${circumference}`;
+  const duration = 1600;
+  const start = performance.now();
+  const update = (now) => {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.style.strokeDashoffset = `${circumference * (1 - eased * target)}`;
+    if (progress < 1) requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+}
+
 // Reveal + counter on scroll
 const io = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
@@ -264,6 +280,7 @@ const io = new IntersectionObserver((entries) => {
     setTimeout(() => {
       el.classList.add('visible');
       el.querySelectorAll('.counter').forEach(c => animateCounter(c));
+      el.querySelectorAll('.counter-ring').forEach(r => animateRing(r));
     }, i * 60);
     io.unobserve(el);
   });

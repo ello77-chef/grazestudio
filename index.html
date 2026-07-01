@@ -614,28 +614,54 @@
     </div><!-- /hl-track-outer -->
   </section>
 
-  <!-- ═══════════ STATS BAND ═══════════ -->
+  <!-- ═══════════ STATS BAND — Dynamic Data Viz ═══════════ -->
   <div class="stats-band">
-    <div class="container stats-grid">
-      <div class="stat-item reveal">
-        <div class="stat-number counter" data-target="50">0</div>
-        <div class="stat-label">Projekte<br/>abgeschlossen</div>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item reveal">
-        <div class="stat-number counter" data-target="98">0</div>
-        <div class="stat-unit">%</div>
-        <div class="stat-label">Zufriedene<br/>Kunden</div>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item reveal">
-        <div class="stat-number counter" data-target="14">0</div>
-        <div class="stat-label">Tage Ø<br/>Lieferzeit</div>
-      </div>
-      <div class="stat-divider"></div>
-      <div class="stat-item reveal">
-        <div class="stat-number">1</div>
-        <div class="stat-label">Direkter<br/>Ansprechpartner</div>
+    <div class="container">
+      <div class="stats-viz reveal">
+        <div class="stats-viz-grid" aria-hidden="true"></div>
+
+        <div class="stat-node">
+          <div class="stat-node-icon">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--em-400)" stroke-width="1.5"><circle cx="6" cy="6" r="1.6" fill="var(--em-400)" stroke="none"/><circle cx="12" cy="6" r="1.6" fill="var(--em-400)" stroke="none"/><circle cx="18" cy="6" r="1.6" fill="var(--em-400)" stroke="none"/><circle cx="6" cy="12" r="1.6" fill="var(--em-400)" stroke="none"/><circle cx="12" cy="12" r="1.6" fill="var(--em-400)" stroke="none"/><circle cx="18" cy="12" r="1.6" fill="var(--em-400)" stroke="none"/><circle cx="6" cy="18" r="1.6" fill="var(--em-400)" stroke="none"/><circle cx="12" cy="18" r="1.6" fill="var(--em-400)" stroke="none"/></svg>
+          </div>
+          <div class="stat-number counter" data-target="50">0</div>
+          <div class="stat-label">Projekte<br/>abgeschlossen</div>
+        </div>
+
+        <div class="stats-connector" aria-hidden="true"></div>
+
+        <div class="stat-node stat-node-center">
+          <div class="stat-ring">
+            <svg viewBox="0 0 140 140">
+              <circle class="ring-track" cx="70" cy="70" r="60"/>
+              <circle class="ring-fill counter-ring" data-target="98" cx="70" cy="70" r="60"/>
+            </svg>
+            <div class="stat-ring-value">
+              <span class="stat-number counter" data-target="98">0</span><span class="stat-unit">%</span>
+            </div>
+          </div>
+          <div class="stat-label">Zufriedene Kunden</div>
+        </div>
+
+        <div class="stats-connector" aria-hidden="true"></div>
+
+        <div class="stat-node">
+          <div class="stat-node-icon">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--em-400)" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+          </div>
+          <div class="stat-number counter" data-target="14">0</div>
+          <div class="stat-label">Tage Ø<br/>Lieferzeit</div>
+        </div>
+
+        <div class="stats-connector" aria-hidden="true"></div>
+
+        <div class="stat-node">
+          <div class="stat-node-icon">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--em-400)" stroke-width="1.5"><circle cx="12" cy="8" r="3.4"/><path d="M5 20c0-4 3-6.5 7-6.5s7 2.5 7 6.5"/></svg>
+          </div>
+          <div class="stat-number counter" data-target="1">0</div>
+          <div class="stat-label">Direkter<br/>Ansprechpartner</div>
+        </div>
       </div>
     </div>
   </div>
