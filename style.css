@@ -331,15 +331,17 @@ section { padding:120px 0; }
   position:relative; z-index:1;
 }
 .about-float-card {
-  position:absolute; bottom:-18px; right:-24px;
+  position:absolute; bottom:-18px; right:-24px; z-index:2;
   padding:12px 18px; display:flex; align-items:center; gap:10px;
   font-size:.82rem; font-weight:600; color:var(--text-1);
   border-color:rgba(16,185,129,.22) !important;
+  background:rgba(4,14,8,.9) !important;
 }
 .about-float-stat {
-  position:absolute; top:24px; right:-28px;
+  position:absolute; top:24px; right:-28px; z-index:2;
   padding:14px 18px; text-align:center;
   border-color:rgba(16,185,129,.22) !important;
+  background:rgba(4,14,8,.9) !important;
 }
 .float-num { font-family:'Archivo',sans-serif; font-size:1.6rem; font-weight:900; background:linear-gradient(135deg,var(--em-500),var(--em-300)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
 .float-text { font-size:.7rem; color:var(--text-3); }
