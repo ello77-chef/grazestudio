@@ -297,10 +297,18 @@ function toggleFaq(btn) {
   }
 }
 
-// Masonry card background fix — apply gradient via CSS var
-document.querySelectorAll('.masonry-card').forEach(card => {
-  const bg = card.style.getPropertyValue('--card-bg');
-  if (bg) card.style.background = bg;
+// Capabilities — service tab switcher
+const capTabs = document.querySelectorAll('.cap-tab');
+const capPanels = document.querySelectorAll('.cap-panel');
+capTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    const cap = tab.dataset.cap;
+    capTabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+    capPanels.forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    tab.setAttribute('aria-selected', 'true');
+    document.querySelector(`.cap-panel[data-panel="${cap}"]`).classList.add('active');
+  });
 });
 
 // Highlights Gallery — Apple-style auto-advancing card slider
@@ -332,21 +340,25 @@ if (hlTrack && hlDots.length) {
   hlGoto(0);
 }
 
-// Browser Showcase — project switcher
-const scTabs = document.querySelectorAll('.sc-tab');
-const bScenes = document.querySelectorAll('.browser-scene');
-const browserUrlText = document.getElementById('browserUrlText');
+// Testimonials — arrow + dot carousel
+const tcTrack = document.getElementById('tcTrack');
+const tcDots = document.querySelectorAll('.tc-dot');
+const tcPrev = document.getElementById('tcPrev');
+const tcNext = document.getElementById('tcNext');
+let tcCurrent = 0;
 
-scTabs.forEach(tab => {
-  tab.addEventListener('click', () => {
-    const proj = tab.dataset.project;
-    scTabs.forEach(t => t.classList.remove('active'));
-    bScenes.forEach(s => s.classList.remove('active'));
-    tab.classList.add('active');
-    document.querySelector(`.browser-scene[data-project="${proj}"]`).classList.add('active');
-    if (browserUrlText) browserUrlText.textContent = tab.dataset.url;
-  });
-});
+function tcGoto(idx) {
+  tcCurrent = (idx + tcDots.length) % tcDots.length;
+  tcTrack.style.transform = `translateX(-${tcCurrent * 100}%)`;
+  tcDots.forEach((d, i) => d.classList.toggle('active', i === tcCurrent));
+}
+
+if (tcTrack && tcDots.length) {
+  tcDots.forEach(d => d.addEventListener('click', () => tcGoto(parseInt(d.dataset.idx, 10))));
+  tcPrev.addEventListener('click', () => tcGoto(tcCurrent - 1));
+  tcNext.addEventListener('click', () => tcGoto(tcCurrent + 1));
+  tcGoto(0);
+}
 
 // ============================================================
 // SITE WAVE BACKGROUND — animated 3D particle wave, fixed behind
