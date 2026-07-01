@@ -420,7 +420,10 @@ section { padding:120px 0; }
 /* ════════════════════════════════
    HIGHLIGHTS GALLERY — Apple-Style
    ════════════════════════════════ */
-#highlights { padding:120px 0 0; overflow:hidden; background:var(--bg-t); }
+#highlights { padding:120px 0 100px; overflow:hidden; background:var(--bg-t); }
+/* Dotnav's large bottom padding suited a section that ended there; with a trailing CTA it double-gaps, so trim it */
+#highlights .hl-dotnav { padding-bottom:48px; }
+#highlights .section-cta { margin-top:0; }
 .hl-lead { font-size:1rem !important; color:var(--text-4) !important; max-width:560px; margin:16px auto 0; }
 
 .hl-track-outer { margin-top:64px; position:relative; }
