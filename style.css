@@ -170,21 +170,11 @@ section { padding:120px 0; }
   position:relative; overflow:hidden; padding:120px 0 80px;
 }
 
-/* Cinematic blobs (UI/UX Pro Max: animated ambient blobs) */
-.hero-blobs { position:absolute; inset:0; overflow:hidden; pointer-events:none; }
-.blob {
-  position:absolute; border-radius:50%;
-  filter:blur(110px); opacity:0;
-  animation:blobFloat 9s var(--ease) infinite;
-}
-.b1 { width:800px; height:800px; background:var(--em-900); top:-30%; left:-20%; animation-delay:0s; }
-.b2 { width:600px; height:600px; background:var(--em-700); bottom:-25%; right:-15%; animation-delay:3s; }
-.b3 { width:400px; height:400px; background:var(--em-600); top:40%; left:45%; animation-delay:1.5s; opacity:0; }
-
-@keyframes blobFloat {
-  0%,100% { opacity:.22; transform:translate(0,0) scale(1); }
-  33%      { opacity:.32; transform:translate(30px,-20px) scale(1.04); }
-  66%      { opacity:.26; transform:translate(-20px,30px) scale(.97); }
+/* Ambient particle field (physics-based, replaces static blobs) */
+.hero-particles {
+  position:absolute; inset:0; z-index:0;
+  display:block; width:100%; height:100%;
+  pointer-events:none;
 }
 
 .hero-grid {
