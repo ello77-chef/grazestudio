@@ -314,6 +314,16 @@ function toggleFaq(btn) {
   }
 }
 
+// Portfolio — "show more" toggle (mobile only shows 3 of 6 by default)
+const portfolioMore = document.getElementById('portfolioMore');
+const canvasPortfolio = document.querySelector('.canvas-portfolio');
+if (portfolioMore && canvasPortfolio) {
+  portfolioMore.addEventListener('click', () => {
+    const expanded = canvasPortfolio.classList.toggle('expanded');
+    portfolioMore.textContent = expanded ? 'Weniger anzeigen' : 'Weitere Projekte anzeigen';
+  });
+}
+
 // Capabilities — service tab switcher
 const capTabs = document.querySelectorAll('.cap-tab');
 const capPanels = document.querySelectorAll('.cap-panel');

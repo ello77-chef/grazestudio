@@ -645,12 +645,26 @@ section { padding:120px 0; }
 }
 .canvas-label h4 { font-size:1rem; color:var(--text-1); margin-bottom:3px; }
 .canvas-label p { font-size:.8rem; color:var(--em-400); font-weight:600; }
+.portfolio-more { display:none; }
 
 @media (max-width:1000px) {
   /* Scattered absolute layout doesn't survive narrow screens — stack it */
   .canvas-portfolio { position:static; height:auto; display:grid; grid-template-columns:1fr 1fr; gap:24px 20px; }
   .canvas-card { position:static; width:100%; transform:none; }
   .canvas-card:hover { transform:none; }
+
+  /* 6 projects is a lot of scrolling on mobile — show 3, let people opt into more */
+  .canvas-card:nth-child(n+4) { display:none; }
+  .canvas-portfolio.expanded .canvas-card:nth-child(n+4) { display:block; }
+  .portfolio-more {
+    display:block; margin:28px auto 0;
+    background:transparent; color:var(--em-400);
+    font-family:'Archivo',sans-serif; font-weight:700; font-size:.9rem;
+    padding:13px 24px; border-radius:var(--r-sm);
+    border:1px solid rgba(16,185,129,.35); cursor:pointer;
+    transition:background var(--t), border-color var(--t);
+  }
+  .portfolio-more:hover { background:rgba(16,185,129,.1); border-color:rgba(16,185,129,.6); }
 }
 @media (max-width:560px) {
   .canvas-portfolio { grid-template-columns:1fr; }
@@ -808,9 +822,15 @@ footer { background:#01060303; border-top:1px solid var(--border); padding-top:6
   .storyline-svg { display:none; }
   .storyline { height:auto; display:flex; flex-direction:column; gap:28px; }
   .story-step { position:static; transform:none; width:100%; }
-  .stats-viz { flex-direction:column; gap:20px; padding:36px 20px; }
-  .stats-connector { width:1px; height:32px; background:linear-gradient(180deg, transparent, rgba(16,185,129,.5), transparent); }
-  .stat-node { padding:0; }
+  .stats-viz { flex-direction:column; gap:10px; padding:26px 20px; }
+  .stats-connector { width:1px; height:18px; background:linear-gradient(180deg, transparent, rgba(16,185,129,.5), transparent); }
+  .stat-node { padding:0; gap:6px; }
+  .stat-node-icon { width:36px; height:36px; }
+  .stat-node-icon svg { width:22px; height:22px; }
+  .stat-ring { width:104px; height:104px; }
+  .stat-ring-value .stat-number { font-size:1.7rem; }
+  .stat-number { font-size:2rem; }
+  .stat-label { font-size:.74rem; }
   .t-quote { padding:28px 20px; }
   .tc-arrow { width:36px; height:36px; }
   .testimonial-carousel { gap:10px; }
