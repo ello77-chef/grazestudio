@@ -475,7 +475,7 @@ section { padding:120px 0; }
 .hl-gauge { width:200px; height:180px; filter:drop-shadow(0 0 28px rgba(16,185,129,.28)); }
 .hl-gauge-arc { animation:hlGaugeIn 1.6s var(--ease) .2s both; }
 .playing .hl-gauge-arc { animation:hlGaugeIn 1.6s var(--ease) .2s both; }
-@keyframes hlGaugeIn { from{stroke-dashoffset:251.2} to{stroke-dashoffset:62.8} }
+@keyframes hlGaugeIn { from{stroke-dashoffset:100} to{stroke-dashoffset:26.5} }
 .hl-speed-tags { display:flex; gap:10px; flex-wrap:wrap; justify-content:center; }
 .hl-speed-tag { display:flex; align-items:center; gap:6px; background:rgba(16,185,129,.08); border:1px solid rgba(16,185,129,.2); border-radius:999px; padding:5px 12px; font-size:.72rem; font-weight:600; color:var(--em-300); }
 .hl-green-dot { width:6px; height:6px; background:var(--em-400); border-radius:50%; flex-shrink:0; }
