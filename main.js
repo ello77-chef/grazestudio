@@ -1,4 +1,72 @@
 // ============================================================
+// COOKIE CONSENT — DSGVO-Banner (Opt-in, auf jeder Seite)
+// ============================================================
+// Auswahl wird in localStorage gespeichert. Andere Skripte (z.B. Meta-Pixel,
+// Google Analytics für deine Insta-Ads) NUR laden, wenn window.grazeConsent
+// === 'all' ist — im Listener unten an der markierten Stelle einhängen.
+(function cookieConsent() {
+  const KEY = 'grazestudio_consent';
+  window.grazeConsent = localStorage.getItem(KEY); // 'all' | 'necessary' | null
+
+  function loadOptionalScripts() {
+    // ↓↓↓ HIER später Analytics/Meta-Pixel laden (nur bei 'all'-Einwilligung) ↓↓↓
+    // if (window.grazeConsent === 'all') { /* z.B. Meta Pixel init */ }
+  }
+
+  function persist(value) {
+    try { localStorage.setItem(KEY, value); } catch (e) {}
+    window.grazeConsent = value;
+    document.dispatchEvent(new CustomEvent('graze:consent', { detail: value }));
+    if (value === 'all') loadOptionalScripts();
+  }
+
+  function buildBanner() {
+    if (document.querySelector('.cookie-banner')) return;
+    const banner = document.createElement('div');
+    banner.className = 'cookie-banner';
+    banner.setAttribute('role', 'dialog');
+    banner.setAttribute('aria-label', 'Cookie-Hinweis');
+    banner.innerHTML = `
+      <div class="cookie-inner">
+        <div class="cookie-text">
+          <strong>Cookies &amp; Datenschutz</strong>
+          <p>Diese Website nutzt nur technisch notwendige Cookies. Optionale Cookies (z.&nbsp;B. für Statistik) setzen wir ausschließlich mit deiner Einwilligung. Mehr dazu in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+        </div>
+        <div class="cookie-actions">
+          <button type="button" class="cookie-btn cookie-necessary">Nur notwendige</button>
+          <button type="button" class="cookie-btn cookie-accept">Alle akzeptieren</button>
+        </div>
+      </div>`;
+    document.body.appendChild(banner);
+    requestAnimationFrame(() => banner.classList.add('show'));
+
+    const close = () => {
+      banner.classList.remove('show');
+      setTimeout(() => banner.remove(), 500);
+    };
+    banner.querySelector('.cookie-necessary').addEventListener('click', () => { persist('necessary'); close(); });
+    banner.querySelector('.cookie-accept').addEventListener('click', () => { persist('all'); close(); });
+  }
+
+  // Reopen from a footer "Cookie-Einstellungen" link
+  window.grazeOpenCookieSettings = function () {
+    try { localStorage.removeItem(KEY); } catch (e) {}
+    window.grazeConsent = null;
+    buildBanner();
+  };
+  document.addEventListener('click', (e) => {
+    const t = e.target.closest('[data-cookie-settings]');
+    if (t) { e.preventDefault(); window.grazeOpenCookieSettings(); }
+  });
+
+  if (window.grazeConsent === 'all') loadOptionalScripts();
+  if (!window.grazeConsent) {
+    if (document.body) buildBanner();
+    else document.addEventListener('DOMContentLoaded', buildBanner);
+  }
+})();
+
+// ============================================================
 // ★ LANDING-CONFIG — HIER ANPASSEN (kein Code durchsuchen nötig)
 // ============================================================
 const SITE_CONFIG = {
@@ -50,11 +118,13 @@ const SITE_CONFIG = {
   });
 })();
 
-// Navbar scroll
+// Navbar scroll (guarded — legal pages use a different nav)
 const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 40);
-}, { passive: true });
+if (navbar) {
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+}
 
 // ============================================================
 // HERO PARTICLE FIELD — interactive anti-gravity canvas
@@ -288,11 +358,13 @@ window.addEventListener('scroll', () => {
   }
 })();
 
-// Burger
+// Burger (guarded — legal pages have no navbar)
 const burger = document.getElementById('burger');
 const mobileMenu = document.getElementById('mobileMenu');
-burger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
-document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('open')));
+if (burger && mobileMenu) {
+  burger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('open')));
+}
 
 // Counter animation
 function animateCounter(el) {
