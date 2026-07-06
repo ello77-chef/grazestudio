@@ -696,7 +696,7 @@ async function handleSubmit(e) {
   btn.textContent = 'Wird gesendet…';
 
   try {
-    const res = await fetch('https://formsubmit.co/ajax/' + encodeURIComponent(SITE_CONFIG.contactEmail), {
+    const res = await fetch('https://formsubmit.co/ajax/' + SITE_CONFIG.contactEmail, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({
