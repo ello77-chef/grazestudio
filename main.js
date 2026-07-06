@@ -100,6 +100,10 @@ const SITE_CONFIG = {
   // --- KAPAZITÄTS-/VERKNAPPUNGSHINWEIS ------------------------
   // Monatlich aktualisieren. Erscheint im Hero UND über dem Kontaktformular.
   capacityNote: 'Nur noch 2 von 3 Projekt-Plätzen diesen Monat frei',
+
+  // --- KONTAKTFORMULAR -> ZIEL-E-MAIL ------------------------
+  // Formular-Anfragen werden an diese Adresse geschickt (via FormSubmit.co).
+  contactEmail: 'grazestudio.at@gmail.com',
 };
 
 // Apply config to the DOM (headline, subheadline, capacity notes)
@@ -674,15 +678,47 @@ if (tcTrack && tcDots.length) {
   }
 })();
 
-// Form submit
-function handleSubmit(e) {
+// Form submit — sends the enquiry to SITE_CONFIG.contactEmail via FormSubmit.co
+// (statischer Host kann selbst keine Mails senden; FormSubmit leitet weiter).
+async function handleSubmit(e) {
   e.preventDefault();
+  const form = e.target;
   const btn = document.getElementById('submitBtn');
+  const errEl = document.getElementById('formError');
+  const get = (n) => (form.querySelector(`[name="${n}"]`)?.value || '').trim();
+
+  // Honeypot: von echten Nutzern nie ausgefüllt -> stiller Abbruch bei Bots
+  if (get('_honey')) return;
+
+  if (errEl) errEl.style.display = 'none';
+  const originalText = btn.textContent;
   btn.disabled = true;
   btn.textContent = 'Wird gesendet…';
-  setTimeout(() => {
-    btn.style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
-    e.target.reset();
-  }, 1200);
+
+  try {
+    const res = await fetch('https://formsubmit.co/ajax/' + encodeURIComponent(SITE_CONFIG.contactEmail), {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        Name: get('name'),
+        'Telefon/E-Mail': get('contact'),
+        Nachricht: get('message') || '(keine Nachricht angegeben)',
+        _subject: 'Neue Anfrage über grazestudio.at',
+        _template: 'table',
+        _captcha: 'false',
+      }),
+    });
+    const json = await res.json().catch(() => ({}));
+    if (res.ok && (json.success === true || json.success === 'true')) {
+      btn.style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+      form.reset();
+    } else {
+      throw new Error(json.message || 'Senden fehlgeschlagen');
+    }
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = originalText;
+    if (errEl) errEl.style.display = 'block';
+  }
 }

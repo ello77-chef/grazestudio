@@ -773,6 +773,8 @@ section { padding:120px 0; }
 .contact-lead { font-size:1rem !important; color:var(--text-2) !important; margin-bottom:28px; }
 .contact-details { display:flex; flex-direction:column; gap:14px; margin-bottom:28px; }
 .contact-row { display:flex; align-items:center; gap:12px; font-size:.88rem; color:var(--text-2); }
+.contact-row a { color:var(--text-2); text-decoration:none; transition:color var(--t); }
+.contact-row a:hover { color:var(--em-400); }
 
 .guarantee {
   display:flex; align-items:flex-start; gap:14px;
@@ -818,6 +820,8 @@ form { display:flex; flex-direction:column; gap:16px; }
 .form-check label { font-size:.78rem; color:var(--text-3); cursor:pointer; }
 .link { color:var(--em-400); text-decoration:none; }
 .form-success { display:none; background:rgba(16,185,129,.1); border:1px solid rgba(16,185,129,.28); color:var(--em-400); border-radius:10px; padding:14px; font-size:.88rem; font-weight:600; text-align:center; }
+.form-error { display:none; background:rgba(239,68,68,.1); border:1px solid rgba(239,68,68,.35); color:#fca5a5; border-radius:10px; padding:14px; font-size:.85rem; text-align:center; }
+.form-error a { color:#fca5a5; font-weight:700; }
 
 /* ════════════════════════════════
    FOOTER
